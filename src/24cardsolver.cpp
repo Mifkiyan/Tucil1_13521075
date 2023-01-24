@@ -7,16 +7,8 @@
 using namespace std;
 set<string> solution;
 
-bool isValid(string inp)
+bool isInputValid(string inp)
 {
-    if (inp.length() == 2)
-    {
-        if (inp[0] != '1' || inp[1] != '0')
-        {
-            return false;
-        }
-    }
-
     if (inp.length() == 1)
     {
         if (!isdigit(inp[0]))
@@ -32,6 +24,14 @@ bool isValid(string inp)
             {
                 return false;
             }
+        }
+    }
+
+    else if (inp.length() == 2)
+    {
+        if (inp[0] != '1' || inp[1] != '0')
+        {
+            return false;
         }
     }
 
@@ -127,27 +127,27 @@ void inp_way(int inp[4])
 
         if (choseCard < 1 || choseCard > 2)
         {
-            cout << "Masukan tidak valid! Silahkan coba lagi\n\n";
+            cout << "Masukan tidak valid! Silahkan coba lagi.\n\n";
             continue;
         }
 
         if (choseCard == 1)
         {
-            string inp_card[4];
+            string inp_card1, inp_card2, inp_card3, inp_card4;
             while (true)
             {
                 cout << "Kartu ke-1 : ";
-                cin >> inp_card[0];
+                cin >> inp_card1;
                 cout << "Kartu ke-2 : ";
-                cin >> inp_card[1];
+                cin >> inp_card2;
                 cout << "Kartu ke-3 : ";
-                cin >> inp_card[2];
+                cin >> inp_card3;
                 cout << "Kartu ke-4 : ";
-                cin >> inp_card[3];
+                cin >> inp_card4;
 
-                if (!isValid(inp_card[0]) || !isValid(inp_card[1]) || !isValid(inp_card[2]) || !isValid(inp_card[3]))
+                if (!isInputValid(inp_card1) || !isInputValid(inp_card2) || !isInputValid(inp_card3) || !isInputValid(inp_card4))
                 {
-                    cout << "Masukan kartu tidak valid! Silahkan coba lagi\n\n";
+                    cout << "Masukan kartu tidak valid! Silahkan coba lagi.\n\n";
                     continue;
                 }
                 else
@@ -155,10 +155,10 @@ void inp_way(int inp[4])
                     break;
                 }
             }
-            inp[0] = stringToNum(inp_card[0]);
-            inp[1] = stringToNum(inp_card[1]);
-            inp[2] = stringToNum(inp_card[2]);
-            inp[3] = stringToNum(inp_card[3]);
+            inp[0] = stringToNum(inp_card1);
+            inp[1] = stringToNum(inp_card2);
+            inp[2] = stringToNum(inp_card3);
+            inp[3] = stringToNum(inp_card4);
             break;
         }
 
@@ -378,7 +378,7 @@ int main()
         cin.ignore();
         if (choseSave != 'Y' && choseSave != 'y' && choseSave != 'N' && choseSave != 'n')
         {
-            cout << "Masukan tidak valid! Silahkan coba lagi\n\n";
+            cout << "Masukan tidak valid! Silahkan coba lagi.\n\n";
             continue;
         }
 
