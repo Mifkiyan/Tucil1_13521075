@@ -127,7 +127,7 @@ void inp_way(int inp[4])
 
         if (choseCard < 1 || choseCard > 2)
         {
-            cout << "Masukan tidak valid! Silahkan coba lagi.\n\n";
+            cout << "Masukan tidak sesuai! Silahkan coba lagi.\n\n";
             continue;
         }
 
@@ -147,7 +147,7 @@ void inp_way(int inp[4])
 
                 if (!isInputValid(inp_card1) || !isInputValid(inp_card2) || !isInputValid(inp_card3) || !isInputValid(inp_card4))
                 {
-                    cout << "Masukan kartu tidak valid! Silahkan coba lagi.\n\n";
+                    cout << "Masukan kartu tidak sesuai! Silahkan coba lagi.\n\n";
                     continue;
                 }
                 else
@@ -312,6 +312,9 @@ void kurung5(int a, int b, int c, int d, char op[4])
 
 int main()
 {
+    cout << "\n =======================================\n";
+    cout << "  Selamat Datang di 24 Card Game Solver \n";
+    cout << " =======================================\n\n";
     char op[4] = {'+', '-', '*', '/'};
     int inp[4];
     int count;
@@ -349,7 +352,7 @@ int main()
     }
     auto end = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<chrono::microseconds>(end - start);
-    double duration_sec = (double)duration.count() / 1000000;
+    double duration_sec = (double)duration.count() / 1000;
 
     cout << "\nKartu yang terpilih/dipilih:\n";
     cout << inp_card[0] << " " << inp_card[1] << " " << inp_card[2] << " " << inp_card[3] << endl;
@@ -368,7 +371,7 @@ int main()
     {
         cout << *j << endl;
     }
-    cout << "\nExecution time: " << duration_sec << " seconds\n";
+    cout << "\nTime taken: " << duration_sec << " miliseconds\n";
 
     while (true)
     {
@@ -378,7 +381,7 @@ int main()
         cin.ignore();
         if (choseSave != 'Y' && choseSave != 'y' && choseSave != 'N' && choseSave != 'n')
         {
-            cout << "Masukan tidak valid! Silahkan coba lagi.\n\n";
+            cout << "Masukan tidak sesuai! Silahkan coba lagi.\n\n";
             continue;
         }
 
